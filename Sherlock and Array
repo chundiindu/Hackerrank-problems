@@ -1,0 +1,36 @@
+https://www.hackerrank.com/challenges/sherlock-and-array/problem
+
+
+class Result {
+
+    /*
+     * Complete the 'balancedSums' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static String balancedSums(List<Integer> arr) {
+    // Write your code here
+        int suffixSum = 0;
+        for(int i=0;i<arr.size();i++)
+        {
+            suffixSum = suffixSum + arr.get(i);
+        }
+        int prefixSum = 0;
+        for(int i=0;i<arr.size();i++)
+        {
+            suffixSum = suffixSum - arr.get(i);
+            if(suffixSum == prefixSum)
+            {
+                return "YES";
+            }
+            else
+                prefixSum = prefixSum + arr.get(i);      
+            
+        }
+        return "NO";
+        
+    }
+
+}
